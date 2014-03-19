@@ -34,7 +34,7 @@ extensions = {autolink: true,
     tables: true}
 md = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(render_options), extensions)
 
-content = Array.new
+content = []
 
 content << "# HCI GOMS Thing"
 content << "*Quinn Rohlf*"
@@ -68,6 +68,24 @@ designA << ['Locate okay button', 'S']
 designA << ['Click okay button', 'P']
 content << render(designA)
 
-markdown = md.render(content.join("\n\n"))
+content << "## Design B"
+content << '### one-number query'
+designB = []
+designB << ['Locate telephone number', 'S']
+designB << ['Mouse to telephone number', 'P']
+designB << ['Decide on database', 'M']
+designB << ['Click database', 'P']
+designB << ['Pick query option', 'P']
+content << render(designB)
+
+content << '### two-number query'
+content << render(designB*2)
+
+content << "## My Time"
+content << "I probably spent about an hour writing the code to generate these tables and 30 minutes building the models that give the estimates shown above."
+
+markdown = content.join("\n\n")
+body = md.render(markdown)
+File.write('output.md', markdown)
 template = ERB.new(File.read('template.erb'))
-puts template.result
+File.write('output.html', template.result)
