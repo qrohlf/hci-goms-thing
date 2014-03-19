@@ -12,16 +12,12 @@ module OPS
 end
 
 def render(ops)
-    total_time = 0;
-    table = Array.new
+    table = []
     table << "Description | Operation | Time"
     table << "---|---|---"
-    ops.each do |key, val|
-        time = eval("OPS::#{val}")
-        total_time += time
-        table << "#{key} | #{val} | #{time} ms"
-    end
-
+    # Holy functional programming, Batman!
+    table << ops.each.map{|k,v| [k, v, eval("OPS::#{v}").to_s+" ms"].join(" | ")}.join("\n")
+    total_time = ops.map{|o| eval("OPS::#{o[1]}")}.inject(:+);
     table << "Total: | | #{total_time/1000}.#{total_time%1000/10} seconds"
     table.join("\n")
 end
@@ -33,6 +29,7 @@ extensions = {autolink: true,
     hard_wrap: true,
     tables: true}
 md = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(render_options), extensions)
+template = ERB.new(File.read('template.erb'))
 
 content = []
 
@@ -88,5 +85,4 @@ content << "The `hci-goms.rb` file (listed above) generates this file as well as
 markdown = content.join("\n\n")
 body = md.render(markdown)
 File.write('Readme.md', markdown)
-template = ERB.new(File.read('template.erb'))
 File.write('output.html', template.result)
