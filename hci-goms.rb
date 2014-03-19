@@ -81,11 +81,12 @@ content << render(designB)
 content << '### two-number query'
 content << render(designB*2)
 
-content << "## My Time"
-content << "I probably spent about an hour writing the code to generate these tables and 30 minutes building the models that give the estimates shown above."
+content << "## Notes"
+content << "I probably spent about an hour writing the code to generate these tables and 30 minutes building the models that give the estimates in this file."
+content << "The `hci-goms.rb` file (listed above) generates this file as well as an html file when `ruby hci-goms.rb` is run."
 
 markdown = content.join("\n\n")
 body = md.render(markdown)
-File.write('output.md', markdown)
+File.write('Readme.md', markdown)
 template = ERB.new(File.read('template.erb'))
 File.write('output.html', template.result)
