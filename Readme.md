@@ -80,6 +80,6 @@ Total: | | 11.86 seconds
 
 ## Notes
 
-I probably spent about an hour writing the code to generate these tables and 30 minutes building the models that give the estimates in this file.
+I probably spent about an hour writing the code to generate these tables and twenty minutes building the models that give the estimates in this file.
 
 The `hci-goms.rb` file (listed above) generates this file as well as an html file when `ruby hci-goms.rb` is run.
