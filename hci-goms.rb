@@ -37,42 +37,41 @@ content << "# HCI GOMS Thing"
 content << "*Quinn Rohlf*"
 content << "## Design A"
 content << '### one-number query'
-designA = []
-
-designA << ['Locate menu', 'S']
-designA << ['Mouse to menu', 'P']
-designA << ['Decide on database', 'M']
-designA << ['Click database', 'P']
-designA << ['Drag mouse right', 'P']
-designA << ['Pick query option', 'P']
-designA << ['Locate dialog box input', 'S']
-designA << ['Mouse to input', 'P']
-designA << ['Type telephone number', 'T[8]']
-designA << ['Locate add button', 'S']
-designA << ['Click add button', 'P']
-designA << ['Locate okay button', 'S']
-designA << ['Click okay button', 'P']
+designA = [] \
+<< ['Locate menu', 'S'] \
+<< ['Mouse to menu', 'P'] \
+<< ['Decide on database', 'M'] \
+<< ['Click database', 'P'] \
+<< ['Drag mouse right', 'P'] \
+<< ['Pick query option', 'P'] \
+<< ['Locate dialog box input', 'S'] \
+<< ['Mouse to input', 'P'] \
+<< ['Type telephone number', 'T[8]'] \
+<< ['Locate add button', 'S'] \
+<< ['Click add button', 'P'] \
+<< ['Locate okay button', 'S'] \
+<< ['Click okay button', 'P']
 content << render(designA)
 
 content << '### two-number query'
 
-designA << ['Locate dialog box input', 'S']
-designA << ['Mouse to input', 'P']
-designA << ['Type telephone number', 'T[8]']
-designA << ['Locate add button', 'S']
-designA << ['Click add button', 'P']
-designA << ['Locate okay button', 'S']
-designA << ['Click okay button', 'P']
+designA << ['Locate dialog box input', 'S'] \
+<< ['Mouse to input', 'P'] \
+<< ['Type telephone number', 'T[8]'] \
+<< ['Locate add button', 'S'] \
+<< ['Click add button', 'P'] \
+<< ['Locate okay button', 'S'] \
+<< ['Click okay button', 'P']
 content << render(designA)
 
 content << "## Design B"
 content << '### one-number query'
-designB = []
-designB << ['Locate telephone number', 'S']
-designB << ['Mouse to telephone number', 'P']
-designB << ['Decide on database', 'M']
-designB << ['Click database', 'P']
-designB << ['Pick query option', 'P']
+designB = [] \
+<< ['Locate telephone number', 'S'] \
+<< ['Mouse to telephone number', 'P'] \
+<< ['Decide on database', 'M'] \
+<< ['Click database', 'P'] \
+<< ['Pick query option', 'P']
 content << render(designB)
 
 content << '### two-number query'
